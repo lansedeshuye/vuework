@@ -1,0 +1,37 @@
+1. vue官网地址
+https://cn.vuejs.org/guide/quick-start.html#try-vue-online
+参考官网地址进行操作
+
+vue 2 和vue3是有区别的,官网地址网络整理一些如下
+Vue3 开发网址
+Vue3官网: https://v3.cn.vuejs.org/
+Element+: https://element-plus.gitee.io/zh-CN/
+Vuex: https://vuex.vuejs.org/zh/index.html
+Vite官网: https://cn.vitejs.dev/
+axios中文文档: http://www.axios-js.com/zh-cn/docs/
+
+Vue2 开发网址
+这个才是
+历史版本了
+https://v2.cn.vuejs.org/v2/guide/installation.html
+
+Vue自动化路由实现: https://www.cnblogs.com/mianbaodaxia/p/11452123.html
+Vue插件汇总: http://tangjiusheng.com/vue/155.html?csdn
+Vue2官网: https://cn.vuejs.org/
+Element2: https://element.eleme.cn/#/zh-CN
+npmjs: https://www.npmjs.com/
+github: https://github.com/
+mockjs: http://mockjs.com/
+JSON在线格式化: https://www.bejson.com/explore/index_new/
+正则表达式在线测试: https://c.runoob.com/front-end/854/
+Lodash中文文档: https://www.lodashjs.com/
+node 以往版本下载: https://nodejs.org/zh-cn/download/releases/
+Jest: https://jestjs.io/zh-Hans/
+Vue Devtools下载: https://chrome.zzzmh.cn/info?token=nhdogjmejiglipccpnnnanhbledajbpd
+热门开发框架案例: https://madewith.cn/
+几个好用的Vue插件: https://www.cnblogs.com/liuqin-always/p/12228125.html
+Vue和微信小程序区别、比较: https://segmentfault.com/a/1190000015684864
+Element2 源码学习总览: https://juejin.cn/column/6961321064110489631
+————————————————
+版权声明：本文为CSDN博主「hujian66」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/hujian66/article/details/124619838
