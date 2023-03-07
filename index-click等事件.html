@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">{{message}} {{message + message }}
+        <div v-bind:id="message"></div>
+        <ul>
+            <!-- <li v-for="item in items">
+                <span v-if="!item.del">{{item.title}}</span>
+                <span v-else style="text-decoration: line-through">{{item.title}}</span>
+                <button v-show="!item.del">删除</button>
+            </li> -->
+            <!-- <todo-item v-for="item in items" :title="item.title" :del="item.del"></todo-item> -->
+        </ul>
+        <todo-items></todo-items>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+
+
+    <script>
+        /**
+         * 1. 原生的加  @click="handleClick"
+         * 2. methods 中定义方法
+         * 3. 自己定义的标签中定义事件，@delete
+         * 4. 一样在methods 中定义自己的方法名
+         * 5. 调用的时候，使用emit,匹配前缀调用delete
+         * 
+         * */
+
+        Vue.component('todo-item', {
+            props: {
+                title: String,
+                del: {
+                    type: Boolean,
+                    default: false,
+                }
+            },
+            template: `
+            <li >
+                <span v-if="!del">{{title}}</span>
+                <span v-else style="text-decoration: line-through">{{title}}</span>
+                <button v-show="!del" @click="handleClick" >删除</button>
+            </li>
+            `,
+            data: function () {
+                return {}
+            },
+            methods: {
+                handleClick(){
+                    console.info('点击删除按钮')
+                    this.$emit('delete', this.title)
+                }
+            }
+        })
+
+        Vue.component('todo-items', {
+            template: `
+            <ul>
+                <todo-item @delete="mydeleteClick" v-for="item in items" :title="item.title" :del="item.del"></todo-item>
+            </ul>
+            `,
+            data: function() {
+                return {
+                    items: [{
+                    title: '课程1',
+                    del: false
+                }, {
+                    title: '课程2',
+                    del: true
+                }
+                ]
+                }
+            },
+            methods: {
+                mydeleteClick(val) {
+                    console.info('mydelete', val)
+                }
+            }
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello world',
+                // items: [{
+                //     title: '课程1',
+                //     del: false
+                // }, {
+                //     title: '课程2',
+                //     del: true
+                // }
+                // ]
+            }
+        })
+
+    </script>
+</body>
+
+</html>

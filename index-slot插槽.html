@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">{{message}} {{message + message }}
+        <div v-bind:id="message"></div>
+        <!-- <ul> -->
+        <!-- <li v-for="item in items">
+                <span v-if="!item.del">{{item.title}}</span>
+                <span v-else style="text-decoration: line-through">{{item.title}}</span>
+                <button v-show="!item.del">删除</button>
+            </li> -->
+        <!-- <todo-item v-for="item in items" :title="item.title" :del="item.del"></todo-item> -->
+        <!-- </ul> -->
+        <todo-items>
+            <!-- <template v-slot> -->
+            <todo-item @delete="mydeleteClick" v-for="item in items" :title="item.title" :del="item.del">
+                <template v-slot:pre-icon="{random}">
+                    <span>前置图标 {{random}}</span>
+                </template>
+                <template v-slot:suf-icon>
+                    <span>后置图标</span>
+                </template>
+
+                
+                <!-- <span slot="pre-icon">前置图标</span>
+                <span slot="suf-icon">后置图标</span> -->
+
+            </todo-item>
+
+            <!-- </template> -->
+        </todo-items>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        /**
+         * 1. 插槽为了解决复杂的内容传递。
+         * 2. 把 <todo-items> 标签里面的内容，挂载到slot里面 ---- 这是默认挂载方式
+         * 3. 指定名称传递slot 
+         * 3.1 指定名称  <slot name="pre-icon"></slot>
+         * 3.2 2.5版本的vue 语法为： <span slot="pre-icon">前置图标</span>
+         * 2.6版本的vue语法为：
+         * <template v-slot:pre-icon>
+                    <span>前置图标</span>
+                </template>
+         * 
+         * 4. 把值传出去
+         * random
+         * 
+         * */
+
+        Vue.component('todo-item', {
+            props: {
+                title: String,
+                del: {
+                    type: Boolean,
+                    default: false,
+                }
+            },
+            template: `
+            <li >
+                <slot name="pre-icon" :random="random"></slot>
+                <span v-if="!del">{{title}}</span>
+                <span v-else style="text-decoration: line-through">{{title}}</span>
+                <button v-show="!del" @click="handleClick" >删除</button>
+                <slot name="suf-icon"></slot>
+                <slot name="defualt-icon">defualt</slot>
+            </li>
+            `,
+            data: function () {
+                return {
+                    random: Math.random()
+                }
+            },
+            methods: {
+                handleClick() {
+                    console.info('点击删除按钮')
+                    this.$emit('delete', this.title)
+                },
+
+            }
+        })
+
+        Vue.component('todo-items', {
+            template: `
+            <ul>
+                <slot></slot>
+            </ul>
+            `,
+            data: function () {
+                return {
+
+                }
+            },
+            methods: {
+                // mydeleteClick(val) {
+                //     console.info('mydelete', val)
+                // }
+            }
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello world',
+                items: [{
+                    title: '课程1',
+                    del: false
+                }, {
+                    title: '课程2',
+                    del: true
+                }]
+            },
+            methods: {
+                mydeleteClick(val) {
+                    console.info('mydelete', val)
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

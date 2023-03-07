@@ -35,3 +35,83 @@ Element2 源码学习总览: https://juejin.cn/column/6961321064110489631
 ————————————————
 版权声明：本文为CSDN博主「hujian66」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/hujian66/article/details/124619838
+
+
+4,vue cli 脚手架
+ 官网： https://cli.vuejs.org
+
+4.1 安装npm， 因为npm在nodejs里面，所以下载nodejs的zip包，直接解压，然后配置path路径
+NODE_PATH=D:\myworkvue\nodejs\node-v18.14.2-win-x64
+
+4.2
+进入到解压缩后的目录，创建node-cache和node-global文件夹
+
+PS C:\Users\Administrator> node --version
+v18.14.2
+PS C:\Users\Administrator> npm --version
+9.5.0
+
+5. 由于node的镜像指向国外，这里更换为阿里巴巴的国内镜像，速度快
+## 命令行输入以下命令换用taobao源
+
+# 持久使用
+npm config set registry=https://registry.npm.taobao.org
+# 检查
+npm config get registry
+
+
+
+6. 设置nodejs 配置
+npm config set prefix "D:\myworkvue\nodejs\node-v18.14.2-win-x64\node_global"
+npm config set cache "D:\myworkvue\nodejs\node-v18.14.2-win-x64\node_cache"
+检查
+npm config get prefix
+
+
+7.使用 npm 安装 Vue CLI
+## 在你的项目工作区中打开命令行执行 -g 表示全局安装
+npm install -g @vue/cli
+# 检查
+vue --version
+
+8.使用 Vue 创建项目
+## 在你的项目工作区中打开命令行执行，创建 hello-world 项目
+vue create hello-world
+# 安装依赖
+cd hello-world
+npm install
+
+9.图形化创建
+## cmd执行 会在默认浏览器打开图形化界面
+vue ui
+
+
+10. 查看所有的配置
+npm config list
+
+11. npm info vue 
+看看能否获得vue的信息
+
+12. 运行npm安装vue脚手架
+npm install -g @vue/cli
+
+12-1 配置vue的环境变量 
+VUE_PATH = D:\myworkvue\nodejs\node-v18.14.2-win-x64\node_global
+
+vue -V 执行报错
+get-ExecutionPolicy
+Restricted：代表不载入配置，不执行脚本，这个是默认值
+Set-ExecutionPolicy ：命令将会修改PowerShell中执行策略的用户首选项。执行策略是Windows  PowerShell安全策略中的一部分。决定你是否可以载入配置文件和运行脚本。
+RemoteSigned：从互联网上面下载的脚本必须通过信任的出版社签名
+
+执行命令：
+set-ExecutionPolicy RemoteSigned
+
+
+
+13. 创建项目
+
+vue create vue-demo
+
+
+
