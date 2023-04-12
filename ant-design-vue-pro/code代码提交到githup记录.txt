@@ -1,0 +1,12 @@
+
+1. 先有githup的账号和密码，同时存在githup的仓库地址，
+
+1.首先安装配置好vscode：https://code.visualstudio.com/download
+然后下载git： https://git-scm.com/download
+根据自己的电脑选择相应的版本的下载就好了
+
+2.在本地配置/vscode配置git链接github
+
+
+
+
