@@ -1,11 +1,19 @@
 
 1. 先有githup的账号和密码，同时存在githup的仓库地址，
 
+2. 使用方法
+1. 先配置好git 的ssh
+2. 然后使用git clone 项目 下来
+3. 然后使用vscode 打开项目
+4. 然后可以正常拉取和提交项目了
+
+
 1.首先安装配置好vscode：https://code.visualstudio.com/download
 然后下载git： https://git-scm.com/download
 根据自己的电脑选择相应的版本的下载就好了
 
 2.在本地配置/vscode配置git链接github
+
 
 
 

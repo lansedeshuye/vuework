@@ -59,6 +59,9 @@ npm config set registry=https://registry.npm.taobao.org
 # 检查
 npm config get registry
 
+国外镜像
+npm config set registry https://registry.cnpmjs.org/
+
 
 
 6. 设置nodejs 配置
@@ -98,6 +101,13 @@ npm install -g @vue/cli
 12-1 配置vue的环境变量 
 VUE_PATH = D:\myworkvue\nodejs\node-v18.14.2-win-x64\node_global
 
+13. 安装组件
+1.安装express，使用npm命令——> npm install express -g
+2.安装webpack，使用npm命令——> npm install webpack -g
+
+14. 安装vue-router(路由)
+npm install vue-router --save
+
 vue -V 执行报错
 get-ExecutionPolicy
 Restricted：代表不载入配置，不执行脚本，这个是默认值
@@ -110,8 +120,56 @@ set-ExecutionPolicy RemoteSigned
 
 
 13. 创建项目
-
 vue create vue-demo
+
+
+解决办法：
+ 
+1、执行：
+npm config get proxy
+npm config get https-proxy
+ 
+如果返回值都为空，下面的这个设置就可以跳过啦
+如果返回值不为null，继续执行：
+ 
+npm config set proxy null
+npm config set https-proxy null
+ 
+2、执行：
+npm config set registry http://registry.cnpmjs.org/
+ 
+3.安装cnpm
+npm install -g cnpm --registry=
+
+npm install nprogress
+----- 进度条不看了，因为下载不了
+
+为什么要安装cnpm，是因为npm的服务器在国外，
+通过npm下载插件经常会出现下载缓慢或者报错的问题。cnpm则用的是淘宝的镜像，命令和npm没有区别哦！
+cnpm -v
+cnpm跟npm用法完全一致，只是在执行命令时将npm改为cnpm（以下操作将以cnpm代替npm）
+
+
+
+
+
+npm init  			//初始化项目(生成package.json)
+npm install  (-g)  	//添加依赖
+npm uninstall (-g) 	//删除依赖
+npm update (-g)  	//更新依赖
+npm run (dev，build，start,test)  //运行脚本
+npm test   			//测试模块
+npm start  			//启动模块
+npm stop  			//停止模块
+npm restart 		//重新启动模块
+npm publish 		//发布模块
+
+vue init webpack demo  #初始化命令
+cd demo			#移动到项目下
+npm run dev		#启动项目
+————————————————
+版权声明：本文为CSDN博主「小-黯」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/qq_44625774/article/details/124090443
 
 
 
